@@ -6,7 +6,7 @@ orig = [int(item.strip()) for item in orig]
 
 print(sum(orig)) # Print sum (task 1)
 
-previous = set([0])  #Initially used a list, set() is faster because O(1) (instead of O(n)) lookup
+previous = set([0])  #Initially used a list, set() is faster because O(1) (instead of O(n)) average lookup
 i = 0 
 counter = 0
 while(True):
