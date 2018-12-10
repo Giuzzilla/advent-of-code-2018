@@ -17,7 +17,7 @@ for line in input:
 
 secs = 15000 #try for a decent amount of times, you have to reach the global minima, which is found for a secs big enough
 
-minSize = 100
+minSize = -1
 final_i = 0
 for i in range(secs):
     currentPoints = []
@@ -27,8 +27,8 @@ for i in range(secs):
     maxX = max(currentPoints, key=lambda l: l[0])[0]
     minY = min(currentPoints, key=lambda l: l[1])[1]
     maxY = max(currentPoints, key=lambda l: l[1])[1]
-    size = (maxX - minX) + (maxY - minY)
-    if size < minSize:
+    size = (maxX - minX) * (maxY - minY)  # arbitrary measure of the size, any positive monotonic transformation will do. (Note that max*-min* is positive)
+    if size < minSize or minSize == -1:
         minSize = size
         final_i = i
 
