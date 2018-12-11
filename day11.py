@@ -1,8 +1,8 @@
 #https://adventofcode.com/2018/day/11
 
-import numpy as np
-
-grid = np.zeros(shape=(300,300), dtype=np.int64)
+# Was using numpy at the beginning for visualisation of the problem, as usual not strictly needed.
+#import numpy as np
+#grid = np.zeros(shape=(300,300), dtype=np.int64)
 serialNumber = 3463
 
 def current(x,y):
@@ -31,11 +31,12 @@ def sumSize(x, y, size):
             break
     return counter
 
-for x in range(300):
-    for y in range(300):
-        grid[x][y] = current(x,y)
+# Creates the numpy grid, as said above, not needed
+#for x in range(300):
+#    for y in range(300):
+#        grid[x][y] = current(x,y)
 
-# Part 1
+# Part 1, size = 3
 max = [-500000, 0, 0]
 for x in range(300):
     for y in range(300):
@@ -43,7 +44,8 @@ for x in range(300):
         if result > max[0]:
             max = [result, x, y]
 
-# Part 2: Not the most efficient thing ever but after 30s or so it gets stuck without new maxSized (at size == 11, tried that, worked.)
+# Part 2, whatever size: 
+# Not the most efficient thing ever but after 30s or so it gets stuck without new maxSized (at size == 11, tried that, worked.)
 maxSized = [-500000, 0, 0, 0]
 for s in range(1, 300):
     for x in range(300):
@@ -51,7 +53,7 @@ for s in range(1, 300):
             last = sumSize(x,y,s)
             if last > maxSized[0]:
                 maxSized = [last, x, y, s]
-                print(maxSized)
+                print(maxSized)  # Checking on the go what results we are getting       
 
 
 
