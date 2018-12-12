@@ -8,8 +8,6 @@ input = [x.strip() for x in input]
 
 iS = list(input[0].split(": ")[1])
 rules = input[2:]
-
-rulesSet = set([x.split(" ")[0] for x in rules])
 rules = dict([(x.split(" ")[0], x.split(" ")[2]) for x in rules])
 
 
@@ -35,7 +33,7 @@ for gen in range(1, generations + 1):
     counter = 0
     for i in range(2, len(newGen) - 3):
         current = ''.join(iS[i-2:i+3])
-        if current in rulesSet:
+        if current in rules:
             newGen[i] = rules[current]
         else:
             newGen[i] = '.'
